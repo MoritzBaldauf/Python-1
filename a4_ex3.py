@@ -20,7 +20,7 @@ def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Retur
         return grade
     else:
         assignments.sort(reverse=True)
-        for i in range(len(assignments[:7])):
+        for i in range(len(assignments[:8])):
             if assignments[i] < 25:
                 return grade
 
@@ -42,6 +42,6 @@ def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Retur
 
 
 
-grade_received = grade_calculator([100,100,100,100,100,100,100,100,100,100], 100, 49)
+grade_received = grade_calculator([0,100,100,13,100,100,20,100,100,100], 0, 100)
 
 print(grade_received)
