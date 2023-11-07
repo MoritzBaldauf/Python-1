@@ -1,4 +1,4 @@
-
+# DONE
 def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Return tuple[bool, int]
     grade = (False, 5)
     # Check that each value is int (ther is most likley a better solution)

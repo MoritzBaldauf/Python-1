@@ -1,4 +1,4 @@
-
+# DONE
 def clip(*values, min_=0, max_=1):
     final_list = []
     for i in range(len(values)):
@@ -11,5 +11,5 @@ def clip(*values, min_=0, max_=1):
     return final_list
 
 
-result = clip(-1, 0.5, min_=2, max_=3)
+result = clip(-1, 0.5, max_=0.3)
 print(result)
