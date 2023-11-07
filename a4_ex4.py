@@ -1,22 +1,26 @@
-######## NOT DONE
 def round_(number, ndigits=None):
+
+    # Round to 0 decimal places
     if ndigits is None:
-        # Round to 0 decimal places, returning an integer
-        return int(number + 0.5 if number > 0 else number - 0.5)
-    else:
-        #number_list = []
-        number_string = str(number)
-        number_split = number_string.split(".")
+        return "%0.0f" % number
 
-        if len(number_split[1] + 1) < ndigits:
-            number_split[0] = number_split[0] + 0
-            number = float(number_split)
+    # Round to first , number
+    elif ndigits == 0:
+        if number % 1 >= 0.5:
+            rem = number % 1
+            number += 1 - rem
             return number
-        # Round to ndigits precision, returning a float
-        factor = 10 ** ndigits
-        rounded_number = (number * factor + 0.5 if number > 0 else number * factor - 0.5)
-        return rounded_number / factor
+
+    # Round to ndigits
+    else:
+        string_number = str(number) # Convert to string to check length of comma part
+        number_split = string_number.split(".")
+        if len(number_split[1]) < ndigits: # Avoid printing of additional 0
+            rounded_number = f"%0.{len(number_split[1])}f" % number
+        else:
+            rounded_number = f"%0.{ndigits}f" % number
+        return rounded_number
 
 
-rounded_to_zero_decimal_places = round_(777.777, 4)
-print(f"Rounded to 0 decimal places: {rounded_to_zero_decimal_places}")
+#rounded_to_zero_decimal_places = round_(1777.7727, 3)
+#print(rounded_to_zero_decimal_places)

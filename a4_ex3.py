@@ -1,5 +1,5 @@
-# DONE
-def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Return tuple[bool, int]
+
+def grade_calculator(assignments: list, bonus_assignment: int, exam: int): # Return tuple[bool, int]
     grade = (False, 5)
     # Check that each value is int (ther is most likley a better solution)
     for i in range(len(assignments)):
@@ -13,6 +13,8 @@ def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Retur
         exam = 0
 
     # Check if >= 50% of all achivable assignment points
+    assignments.append(bonus_assignment)
+
     avrg_point_assignments = sum(assignments) / len(assignments)
     if avrg_point_assignments < 50:
         return grade
@@ -25,7 +27,6 @@ def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Retur
                 return grade
 
     # Calc grade if != 5
-    assignments.append(bonus_assignment)
     assignments.append(exam)
     average_final_score = (sum(assignments)/1100)*100
     if average_final_score >= 87.5:
@@ -42,6 +43,6 @@ def grade_calculator(assignments:list, bonus_assignment:int, exam: int): # Retur
 
 
 
-grade_received = grade_calculator([0,100,100,13,100,100,20,100,100,100], 0, 100)
+#grade_received = grade_calculator([0,100,100,13,100,100,20,100,100,100], 0, 100)
 
-print(grade_received)
+#print(grade_received)

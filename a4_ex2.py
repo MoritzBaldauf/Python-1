@@ -1,4 +1,4 @@
-# DONE
+
 def clip(*values, min_=0, max_=1):
     final_list = []
     for i in range(len(values)):
@@ -9,7 +9,3 @@ def clip(*values, min_=0, max_=1):
         else:
             final_list.append(values[i])
     return final_list
-
-
-result = clip(-1, 0.5, max_=0.3)
-print(result)
