@@ -1,3 +1,0 @@
-This overwrites an existing file
-or creates a new one with this text!
-Even more text

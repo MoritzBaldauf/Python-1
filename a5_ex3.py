@@ -23,3 +23,4 @@ def gen_fibonacci(upper_bound):
             else:
                 return fib_sequence
     return fib_sequence
+

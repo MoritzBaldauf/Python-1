@@ -34,4 +34,5 @@ def h(x: int):
     finally:
             print("h1")
     print("h2")
-f(- 11)
+
+f(-11)
