@@ -17,6 +17,6 @@ def sort(elements: list, ascending: bool = True):
                 break
         elements[j + 1] = current_list # make sure current value is not lost because of replacement
 
-list = [1, 3, 0, 4, 5]
-sort(list, True)
-print(list)
+#list = [1, 3, 0, 4, 5]
+#sort(list, False)
+#print(list)
