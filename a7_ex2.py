@@ -7,3 +7,4 @@ class Rotate:
         self.inplace = inplace
 
     def rotation(self):
+

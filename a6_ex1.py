@@ -1,23 +1,34 @@
+import os
 
-def file_statistics(path:str):
-    lines = 0
-    with open(f"{path}", "r") as rf:
-        data = rf.read()
+def file_statistics(path: str):
+    if not path.endswith('.txt'):  # check if textfile
+        raise ValueError(f"Path {path} is not a text file")
 
-        line_split = data.split("\n")
-        line_count = len(line_split)
-        print(f"Lines {line_count}")
+    # counters
+    line_count = 0
+    word_count = 0
+    char_count = 0
+    digit_count = 0
 
-        # Counting words
-        words = list(data.split())
-        words_count = len(words)
-        print(f"Words {words_count}")
+    try:
+        with open(path, 'r', encoding='utf-8') as file:  # open file in read & UTF-8
+            for line in file:  # run through each line of file
+                line_count += 1
+                words = line.split()  # split by space, save in list
+                word_count += len(words)
+                char_count += len(line.replace('\r', ''))  # Dont include carriage returns (\r) in char count
 
-        character_count = len(data)
-        print(f"characters {character_count}")
-        return
+                for char in line: # go through each char of the line str
+                    if char.isdigit(): # check if digit
+                        digit_count += 1
 
+        print('--------------------')
+        print(f"Statistics of file {os.path.basename(path)}:")
+        print(f"Number of lines: {line_count}")
+        print(f"Number of words: {word_count}")
+        print(f"Number of characters: {char_count}")
+        print(f"Number of digits: {digit_count}")
+        print('--------------------')
 
-path = "C:/Users/morit/Downloads/Examples"
-file_statistics(f"{path}/ex1_2.txt")
-
+    except FileNotFoundError: # Error if not a path
+        raise OSError(f"Path {path} does not exist")
