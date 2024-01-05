@@ -63,7 +63,6 @@ class Angle:
             sum_angle += i
         return sum_angle
 
-# Your example execution
 a1 = Angle(degree=45)
 a2 = Angle(radian=math.pi/4)
 a3 = Angle(30, math.pi/6)
