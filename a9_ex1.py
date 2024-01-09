@@ -1,28 +1,30 @@
 
 import re
+import os
 
-def search_patterns(input_file, encoding = 'uft-8'):
-    try:
-        with open(f"{input_file}", 'r', encoding=encoding) as file:
-            content = file.read()
-
-        while True:
-            pattern = input("Enter pattern or press ENTER to exit: ")
-            if not pattern:
-                break
-
-            matches = re.findall(pattern, content)
-            print(f"{pattern}: {matches}")
-
-    except FileNotFoundError:
+def search_patterns_in_file():
+    input_file = input("Enter file name: ")
+    if not os.path.isfile(input_file):
         raise ValueError(f"'{input_file}' is not a file")
 
-if __name__ == "__main__":
-    try:
-        file_name = input("Enter file name: ")
-        search_encoding = input("Enter character encoding or press ENTER for default (utf-8): ") or 'utf-8'
+    encoding = input("Enter character encoding or press ENTER for default (utf-8): ")
+    if not encoding:
+        encoding = 'utf-8'
 
-        search_patterns(file_name, search_encoding)
+    while True:
+        pattern = input("Enter pattern or press ENTER to exit: ")
+        if not pattern:
+            break
 
-    except Exception as e:
-        print(f"Error: {e}")
+        try:
+            compiled_pattern = re.compile(pattern)
+        except re.error:
+            print(f"Invalid regular expression pattern: {pattern}")
+            continue
+
+        with open(input_file, 'r', encoding=encoding) as file:
+            file_content = file.read()
+            matches = compiled_pattern.findall(file_content)
+            print(f"{pattern}: {matches}")
+
+search_patterns_in_file()
