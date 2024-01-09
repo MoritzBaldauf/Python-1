@@ -3,7 +3,7 @@ import re
 
 def search_patterns(input_file, encoding = 'uft-8'):
     try:
-        with open(f"{input_file}", 'r', encoding='utf-8') as file:
+        with open(f"{input_file}", 'r', encoding=encoding) as file:
             content = file.read()
 
         while True:
