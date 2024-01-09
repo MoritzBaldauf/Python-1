@@ -1,4 +1,3 @@
-
 class Rotate:
 
     def __init__(self, matrix: list, degree: float, inplace = False):
@@ -7,4 +6,4 @@ class Rotate:
         self.inplace = inplace
 
     def rotation(self):
-
+        return
