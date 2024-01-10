@@ -62,24 +62,3 @@ class Angle:
         for i in angles:
             sum_angle += i
         return sum_angle
-
-a1 = Angle(degree=45)
-a2 = Angle(radian=math.pi/4)
-a3 = Angle(30, math.pi/6)
-print(a1)
-print(a2.__repr__())
-print(repr(a3))
-print(a1 == a2)
-print(a1 + a2)
-a1 += a3
-print(a1)
-sum_angle = Angle.add_all(a1, a2, a3)
-print(sum_angle)
-try:
-    a4 = Angle()
-except ValueError as e:
-    print(e)
-try:
-    a5 = Angle(degree=45, radian=1)
-except ValueError as e:
-    print(e)

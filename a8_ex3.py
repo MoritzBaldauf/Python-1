@@ -29,33 +29,3 @@ class StandardScaler:
             return self.sig
         else:
             raise IndexError("Index out of range")
-
-
-feats1 = [0,2,4,6,8,10]
-feats2 = [1,3,5,7,9]
-s = StandardScaler()
-print(s.mu, s.sig)
-s.fit(feats1)
-print(s[0], s[1])
-feats1_scaled = s.transform(feats1)
-print(feats1_scaled)
-feats2_scaled = s.transform(feats2)
-print(feats2_scaled)
-s = StandardScaler()
-feats2_scaled = s.fit_transform(feats2)
-print(feats2_scaled)
-print(s[0], s[1])
-s = StandardScaler()
-
-try:
-    s.transform(feats2)
-except ValueError as e:
-    print(f"{type(e).__name__}: {e}")
-try:
-    print(s["foo"])
-except TypeError as e:
-    print(f"{type(e).__name__}: {e}")
-try:
-    print(s[2])
-except IndexError as e:
-    print(f"{type(e).__name__}: {e}")

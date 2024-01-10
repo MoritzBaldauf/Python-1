@@ -26,24 +26,3 @@ class Power:
 class Square(Power):
     def __init__(self):
         self.exponent = 2
-
-x = 3
-square = Square()
-cube = Power(3)
-print(square.exponent, square(x))
-print(cube.exponent, cube(x))
-m1 = square * 2
-print(m1.exponent, m1.__call__(x))
-
-m2 = square * cube
-
-
-print(m2.exponent, m2.__call__(x))
-try :
-    square("foo")
-except TypeError as e:
-    print(e)
-try :
-    Power("foo")
-except TypeError as e:
-    print(e)
